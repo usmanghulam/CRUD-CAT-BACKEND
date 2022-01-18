@@ -23,9 +23,7 @@ export class CatService {
     return await this.catModal.findByIdAndRemove({ _id });
   }
 
-  async updateCat(id: string) {
-    await this.catModal.findOneAndUpdate({ _id: id }).then(() => {
-      return { status: 200 }
-    });
+  async updateCat(cat: CatInterface) {
+    return await this.catModal.findByIdAndUpdate({_id: cat._id}, cat).setOptions({ overwrite: true, new: true });
   }
 }

@@ -21,8 +21,8 @@ export class CatController {
     return this.catService.deleteCat(id);
   }
 
-  // @Post("/single")
-  // updateCat(@Body() { id }: any) {
-  //   return this.catService.getOneCat(id);
-  // }
+  @Post("/update")
+  updateCat(@Body() cat: CatInterface) {
+    return this.catService.updateCat(cat);
+  }
 }
